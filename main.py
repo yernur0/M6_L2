@@ -21,7 +21,7 @@ def echo_message(message):
     promt = message.text
     api = Text2ImageAPI('https://api-key.fusionbrain.ai/', API_KEY, SECRET_KEY)
     model_id = api.get_model()
-    uuid = api.generate("Самый огромный дом на планете", model_id)
+    uuid = api.generate(promt, model_id)
     images = api.check_generation(uuid)[0]
     path = f'{message.from_user.id}.png'
     api.get_image(images, path)
